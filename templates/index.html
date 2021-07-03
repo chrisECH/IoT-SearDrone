@@ -1,39 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" href="static/favicon.ico">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>SearDrone - Camera</title>
     <style>
-        .video-stream{
+        .video-stream {
             border-radius: 5px;
             border-style: solid;
         }
     </style>
 </head>
+
 <body>
 
 
     <div class="container-fluid m-0 p-0">
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid justify-content-center">
-              <a class="navbar-brand" href="{{url_for('index')}}">
-                <img src="static/2logo.png" alt="Sear-Drone Logo" width="120" height="80" class="d-inline-block align-text-top">
-              </a>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a class="navbar-brand" href="{{url_for('index')}}">
+                            <img src="static/2logo.png" alt="Sear-Drone Logo" class=w-100 class="d-inline-block align-text-top">
+                        </a>
+                    </div>
+                </div>
             </div>
         </nav>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <img src="{{url_for('video_feed')}}" class="w-100"></img><br>
+                    <button type="button" class="btn btn-dark" class="w-100">Capturar imagen</button>
+                </div>
+                <div class="col-sm-4">
+                    <div class="col-lg-auto mb-auto ">
+                        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/screens/yt/screen-video-1.jpg" class="w-100" />
+                        </div>
+                    </div>
 
-        
+                    <div class="col-lg-auto mb-auto">
+                        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/screens/yt/screen-video-2.jpg" class="w-100" />
+                        </div>
+                    </div>
 
+                    <div class="col-lg-auto mb-auto">
+                        <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/screens/yt/screen-video-3.jpg" class="w-100" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-light text-center text-lg-start">
+            <div class="container-fluid p-4" style="background-color:gray">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Objetivo</h5>
+                        <p>
+                            Facilidar a las organizaciones a la busqueda de las personas desaparecidas en una cierta
+                            area establecida <br>
+                            Reconocimiento de un humano y objetos mediante un dron con una camara
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Solución propuesta</h5>
+                        <p>
+                            Encontrar personas o cosas desaparecidas en una cierta área mediante un dron
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Reconocimiento</h5>
+                        <p>
+                        <div class="row ">
+                            <div class="col-6 ">
+                                <ul>
+                                    <li>Personas</li>
+                                    <li>Carro</li>
+                                    <li>Avion</li>
+                                    <li>Bicicleta</li>
+                                    <li>Pajaro</li>
+                                    <li>Barco</li>
+                                    <li>Botella</li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <ul>
+                                    <li>Autobus</li>
+                                    <li>Coche</li>
+                                    <li>Gato</li>
+                                    <li>Silla</li>
+                                    <li>Perro</li>
+                                    <li>Moto</li>
+                                    <li>Sofa</li>
+                                    <li>Tren</li>
+                                </ul>
+                            </div>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Grid container -->
 
-        <div class="container d-flex justify-content-center">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2021 Searh-Drone
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- <div class="container d-flex justify-content-center">
             <div class="logo align-content-center mt-5 video-stream">
-                <img src="{{url_for('video_feed')}}"></img> 
+                <img src="{{url_for('video_feed')}}"></img>
             </div>
         </div>
 
@@ -45,17 +132,20 @@
 
         </div>
 
-        
-    </div>
 
-    <!-- <div class="logo-container">
+    </div>-->
+
+        <!-- <div class="logo-container">
         <img src=""></img>
     </div>
     <div class="video-stream">
         <img src="{{url_for('video_feed')}}"></img>    
     </div> -->
-    
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 </body>
+
 </html>
