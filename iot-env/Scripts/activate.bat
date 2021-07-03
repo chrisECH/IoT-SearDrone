@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=E:\Archivos\Escuela\Semestre-10\IoT\proyFInal\iot-env
+set VIRTUAL_ENV=D:\11-.Semestre\IntCosas\Proyecto final\IoT-SearDrone\iot-env
 
 if not defined PROMPT set PROMPT=$P$G
 
