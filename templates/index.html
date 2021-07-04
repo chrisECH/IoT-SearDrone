@@ -38,7 +38,9 @@
             <div class="row">
                 <div class="col-sm-8">
                     <img src="{{url_for('video_feed')}}" class="w-100"></img><br>
-                    <button type="button" class="btn btn-dark" class="w-100">Capturar imagen</button>
+                    <form action="/" method="post">
+                        <button type="submit" class="btn btn-dark">Capturar imagen</button>
+                    </form>
                 </div>
                 <div class="col-sm-4">
                     <div class="col-lg-auto mb-auto ">

@@ -3,9 +3,28 @@ import cv2
 import numpy as np
 import random
 import time
+from datetime import date
+import random
 
 
 app = Flask(__name__)
+
+
+@app.route('/', methods=['POST'])
+def capture():
+    videoCaptureObject = cv2.VideoCapture(0)
+    result = True
+    while(result):
+        ret, frame = videoCaptureObject.read()
+        today = date.today()
+        today = str(today)
+        n = random.randint(0, 999)
+        n = str(n)
+        cv2.imwrite("static/captures/"+today+n+".jpg", frame)
+        result = False
+    videoCaptureObject.release()
+    cv2.destroyAllWindows()
+    return render_template('index.html')
 
 @app.route('/')
 def index():
