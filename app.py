@@ -5,9 +5,29 @@ import random
 import time
 from datetime import date
 import random
+import pyrebase
+
+config = {
+    "apiKey": "AIzaSyAyrKIGIwsRlEpbByureIkoHOyqYGp09SA",
+    "authDomain": "seardrone-1a33d.firebaseapp.com",
+    "databaseURL": "https://seardrone-1a33d-default-rtdb",
+    "projectId": "seardrone-1a33d",
+    "storageBucket": "seardrone-1a33d.appspot.com",
+    "messagingSenderId": "996072906946",
+    "appId": "1:996072906946:web:b50597911c41e9df6a1b5b",
+    "serviceAccount": "serviceAccount.json"
+}
 
 
 app = Flask(__name__)
+
+
+def uploadDrive(nombreArchivo):
+    firebase = pyrebase.initialize_app(config)
+    storage = firebase.storage()
+    path_on_cloud = nombreArchivo
+    path_local = "static/captures/"+nombreArchivo
+    storage.child(path_on_cloud).put(path_local)
 
 
 @app.route('/', methods=['POST'])
@@ -15,15 +35,20 @@ def capture():
     videoCaptureObject = cv2.VideoCapture(0)
     result = True
     while(result):
-        ret, frame = videoCaptureObject.read()
+        ret,frame = videoCaptureObject.read()
         today = date.today()
         today = str(today)
-        n = random.randint(0, 999)
+        n = random.randint(0,999)
         n = str(n)
-        cv2.imwrite("static/captures/"+today+n+".jpg", frame)
+        
+        cv2.imwrite("static/captures/"+today+n+".jpg",frame)
+        nombreArchivo = today+n+".jpg"
+        uploadDrive(nombreArchivo)
+        
         result = False
+
     videoCaptureObject.release()
-    cv2.destroyAllWindows()
+    cv2.destroyAllWindows() 
     return render_template('index.html')
 
 @app.route('/')
